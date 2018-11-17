@@ -1,7 +1,9 @@
 /**
  * @author Leejia James
  *
- * Optional Tasks: Priority Queues - Qns 2 and 3
+ * Short Project 3: Optional Tasks: Priority Queues - Qns 2 and 3
+ * Short Project 11: Divide and conquer, Enumeration -  k largest elements (select)
+ * of an array
  * 
  * Ver 1.0: 2018/09/18
  *  	@author Priyanka Awaraddi
@@ -12,6 +14,10 @@
  *		Implemented heap sort and its related methods in the binary heap class
  *		Implemented the problem of finding the kth largest element of a stream, 
  *		Compared its performance with code that uses Java's priority queue
+ * Ver 3.0: 2018/09/22
+ * 		@author Leejia James
+ * 		@author Vishwanath D C
+ *		Implemented the problem of finding the k largest elements of a stream
  */
 
 package lxj171130;
@@ -308,6 +314,45 @@ public class BinaryHeap<T extends Comparable<? super T>> {
  public static<T extends Comparable<? super T>> T kthLargest(Iterator<T> stream, int k) throws Exception {
 	return kthLargest(stream, k, (T a, T b) -> a.compareTo(b));
  }
+ 
+ 
+ /** Return the k largest elements of stream using custom comparator.
+  *  Assume that k is small enough to fit in memory, but the stream is arbitrarily large.
+  *  If stream has less than k elements return null.
+ * @throws Exception 
+  */
+ public static<T extends Comparable<? super T>> BinaryHeap<T> kLargest(Iterator<T> stream, int k, Comparator<T> c) throws Exception {
+	 T[] arr = (T[]) new Comparable[k];
+	 BinaryHeap<T> bh = new BinaryHeap<T>(arr, c);
+	 while (stream.hasNext()) {
+		 if (bh.size < k) {
+			bh.add(stream.next()); 
+		 }
+		 else {
+			 T x = stream.next();
+			 if (c.compare(x, (T) bh.peek()) > 0) {
+				 bh.replace(x);
+				 bh.percolateDown(0);
+			 }
+		 }
+	 }
+	 if (bh.size < k) {
+		 return null;
+	 }
+	 else {
+		 return bh;
+	 }
+ }
+
+ /** Return the k largest elements of stream using natural ordering.
+  *  Assume that k is small enough to fit in memory, but the stream is arbitrarily large.   
+  *  If stream has less than k elements return null.
+ * @throws Exception 
+  */
+ public static<T extends Comparable<? super T>> BinaryHeap<T> kLargest(Iterator<T> stream, int k) throws Exception {
+	return kLargest(stream, k, (T a, T b) -> a.compareTo(b));
+ }
+ 
 //end of optional problem: kth largest element (Q3)
  
 }

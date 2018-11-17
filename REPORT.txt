@@ -1,0 +1,21 @@
+Short Project 11: Divide and conquer, Enumeration
+Leejia James and Vishwanath D C
+
+Team task: 
+Comparison of Running Times of Algorithms
+
+*******************************************************************************************************
+Algorithm 								n (M)								Running Time (s)
+*******************************************************************************************************
+O(n) Algorithm 							16									
+O(n) Algorithm 							32									
+O(n) Algorithm 							64									
+O(n) Algorithm 							128									
+O(n) Algorithm 							256									
+-------------------------------------------------------------------------------------------------------
+Algorithm using priority queues			16									
+Algorithm using priority queues			32									
+Algorithm using priority queues			64									
+Algorithm using priority queues			128									
+Algorithm using priority queues			256									
+-------------------------------------------------------------------------------------------------------
