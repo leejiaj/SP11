@@ -13,9 +13,9 @@ O(n) Algorithm 							64
 O(n) Algorithm 							128									
 O(n) Algorithm 							256									
 -------------------------------------------------------------------------------------------------------
-Algorithm using priority queues			16									
-Algorithm using priority queues			32									
-Algorithm using priority queues			64									
-Algorithm using priority queues			128									
-Algorithm using priority queues			256									
+Algorithm using priority queues			16									0.568
+Algorithm using priority queues			32									0.998
+Algorithm using priority queues			64									2.955
+Algorithm using priority queues			128									6.521
+Algorithm using priority queues			256									out of memory error
 -------------------------------------------------------------------------------------------------------
