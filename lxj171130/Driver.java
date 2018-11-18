@@ -20,7 +20,7 @@ public class Driver {
     public static Random random = new Random();
     public static int numTrials = 1;
     public static void main(String[] args) throws Exception {
-	int n = 20;  int choice = 2;//1 + random.nextInt(2);
+	int n = 100;  int choice = 1;//1 + random.nextInt(2);
 	int k = n / 2;
 	if(args.length > 0) { n = Integer.parseInt(args[0]); }
 	if(args.length > 1) { choice = Integer.parseInt(args[1]); }
@@ -29,11 +29,16 @@ public class Driver {
 	    arr[i] = i;
 	}
 	Shuffle.shuffle(arr);
+	Shuffle.printArray(arr, "");
 	List<Integer> list = Arrays.asList(arr);
 	Timer timer = new Timer();
 	switch(choice) {
 	case 1: // O(n) algorithm for finding k largest elements
-		
+		Selection.select(arr, k);
+//		for(int i=arr.length-k; i<=arr.length-1; i++) {
+//			System.out.print(arr[i]+ " ");
+//		}
+//		System.out.println();
 	    break;
 	case 2: // Algorithm using priority queues to find k largest elements of stream
 		BinaryHeap<Integer> bh = BinaryHeap.kLargest(list.iterator(), k);
